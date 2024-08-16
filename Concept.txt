@@ -1,0 +1,37 @@
+Keys: Dimesion and Scale
+Core mechanic: 
+- Built xoay quanh việc sử dụng ống nhòm. 
+- Phóng to thu nhỏ vật thể và cách làm biến đổi vật thể
+trong thời gian thực, (cách thay đổi một vật thể có thể tương tác)
+- Thay đổi góc nhìn giữa kính lúp sang thế giới top down
+
+- Nhân vật chính: Kiến
+- Kiến có khả năng phóng to thu nhỏ, nó dùng khả năng đó
+để giải đố.
+
+Ant's problems:
+- Object: Obstacles
+- Thời tiết: mưa
+- Boss: ếch
+
+Lore:
+- Tổ kiến ở thế giới thực bị hút vào 1 dimension "Nơi không hẳn 
+mọi thứ bị đảo lộn kích thước", tổ kiến bị phân tán khắp nơi.
+Lúc này kiến queen ra lệnh kiến thợ đi tìm lại cái thành
+viên của tổ để cùng nhau kiếm cách quay trở lại thế giới
+thực.
+
+Góc nhìn của game: góc nhìn từ trên xuống
+
+World Building:
+- Kích thước chung:
+	Ko hẳn mọi thứ đều có kích thước thực của nó
+- Các vật thể có thể có:
+	Cây, Cỏ, Đá, Nấm, Khúc gỗ, Dây leo, Dòng nước,...
+- Sinh vật khác (ngoài boss) (Optional):
+	Rệp (cung cấp máu), Kiến mật (Ở dimension "..")
+- Cách để thoát khỏi thế giới:
+	Sử dụng mật của kiến mật để mở cổng dimension.
+- Hint đầu game:
+	Ở trên tổ kiến sẽ có mật nhiễu xuống, cổng từ từ mở ra kéo
+	cả tổ kiến vào.
