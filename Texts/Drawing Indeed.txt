@@ -1,0 +1,18 @@
+List cần vẽ:
+- Nhân vật:
+	+ Kiến Queen
+	+ Kiến thợ (được giải cứu)
+	+ Kiến thợ (nhân vật chính)
+	+ Kiến mật
+	+ Rệp
+	+ Ếch
+
+- Sinh/Vật thể tự nhiên:
+	+ Nấm
+	+ Cỏ
+	+ Khúc gỗ
+	+ Đá tảng, đá cục, đá cuội
+
+- Môi trường:
+	+ Tilemap (nên tìm nguồn để tham khảo thêm)
+	+ dòng suối
