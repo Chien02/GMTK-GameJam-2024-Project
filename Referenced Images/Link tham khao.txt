@@ -1,0 +1,4 @@
+Cách sử dụng tilemap như thế nào?
+-> Xem tutorial để biết được tilemap là gì và nó được ứng dụng vào game
+như nào -> từ đó biết cách để vẽ được tile map
+https://youtu.be/tQSL2scuqeU?si=w8hAQS1XyACYC2ab
