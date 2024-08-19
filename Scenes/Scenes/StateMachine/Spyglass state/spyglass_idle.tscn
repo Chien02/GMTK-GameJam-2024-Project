@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4g6x7stp7jhc"]
+
+[ext_resource type="Script" path="res://Scripts/StateMachine/SpyglassStates/Spyglass_idle.gd" id="1_r1ud8"]
+
+[node name="Spyglass_idle" type="Node2D"]
+script = ExtResource("1_r1ud8")

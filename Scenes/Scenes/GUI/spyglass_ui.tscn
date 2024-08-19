@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1500xsrupa5v"]
+
+[ext_resource type="Texture2D" uid="uid://cj5ptn4tghund" path="res://Sprites (Images)/Tools/SpyglassUI_glass.png" id="1_117t3"]
+[ext_resource type="Script" path="res://Scripts/Spyglass/Focusing.gd" id="1_jtfis"]
+[ext_resource type="Texture2D" uid="uid://cdedy7n1t1fxw" path="res://Sprites (Images)/Tools/SpyglassUI_dot.png" id="2_upe2n"]
+[ext_resource type="Texture2D" uid="uid://d34ycoe6dw87t" path="res://Sprites (Images)/Tools/SpyglassUI_ruler.png" id="3_kq4t1"]
+[ext_resource type="FontVariation" uid="uid://6ijm46uw7t24" path="res://Font/monogram_font.tres" id="5_dxre3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qmvyg"]
+texture = ExtResource("3_kq4t1")
+texture_margin_left = 32.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rg3re"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jqof"]
+
+[node name="Spyglass UI" type="Control" node_paths=PackedStringArray("slider", "timer")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(34, 29)
+mouse_filter = 1
+script = ExtResource("1_jtfis")
+slider = NodePath("VSlider")
+timer = NodePath("Timer")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 34.0
+offset_bottom = 30.0
+texture = ExtResource("1_117t3")
+
+[node name="VSlider" type="VSlider" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -2.0
+offset_right = 71.0
+offset_bottom = 63.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/center_grabber = -1
+theme_override_constants/grabber_offset = 0
+theme_override_icons/grabber = ExtResource("2_upe2n")
+theme_override_icons/grabber_highlight = ExtResource("2_upe2n")
+theme_override_icons/grabber_disabled = ExtResource("2_upe2n")
+theme_override_styles/slider = SubResource("StyleBoxTexture_qmvyg")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_rg3re")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_3jqof")
+min_value = -40.0
+max_value = 40.0
+step = 5.0
+
+[node name="Labels" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Labels"]
+layout_mode = 0
+offset_left = 49.51
+offset_top = -6.0
+offset_right = 61.51
+offset_bottom = 7.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("5_dxre3")
+theme_override_font_sizes/font_size = 16
+text = "5x"
+
+[node name="Label2" type="Label" parent="Labels"]
+layout_mode = 0
+offset_left = 49.51
+offset_top = 10.0
+offset_right = 61.51
+offset_bottom = 23.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("5_dxre3")
+theme_override_font_sizes/font_size = 16
+text = "1x"
+
+[node name="Label3" type="Label" parent="Labels"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 26.0
+offset_right = 65.0
+offset_bottom = 39.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("5_dxre3")
+theme_override_font_sizes/font_size = 16
+text = "-5x"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

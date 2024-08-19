@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgg5c8ridgke"]
+
+[ext_resource type="Script" path="res://Scripts/StateMachine/Ant States/AntPush.gd" id="1_luaei"]
+
+[node name="Push" type="Node2D"]
+script = ExtResource("1_luaei")

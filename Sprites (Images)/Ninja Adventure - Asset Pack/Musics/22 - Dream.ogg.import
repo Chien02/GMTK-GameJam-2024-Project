@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8esaj6nlfejk"
+path="res://.godot/imported/22 - Dream.ogg-10f7602498b231e0cc4d89ef474fda31.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sprites (Images)/Ninja Adventure - Asset Pack/Musics/22 - Dream.ogg"
+dest_files=["res://.godot/imported/22 - Dream.ogg-10f7602498b231e0cc4d89ef474fda31.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

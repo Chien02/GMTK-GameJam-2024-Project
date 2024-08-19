@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4shfqsxnx42u"]
+
+[ext_resource type="Texture2D" uid="uid://o43ah1tnp2un" path="res://Sprites (Images)/Tools/Spyglass.png" id="1_pdkni"]
+[ext_resource type="Script" path="res://Scripts/Spyglass/spyglass.gd" id="1_tragd"]
+[ext_resource type="PackedScene" uid="uid://c1500xsrupa5v" path="res://Scenes/Scenes/GUI/spyglass_ui.tscn" id="3_e1yt8"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/SpyglassStates/SpyglassStateMachine.gd" id="4_5tj4b"]
+[ext_resource type="Script" path="res://Scripts/Spyglass/SpyglassCamera.gd" id="4_dqrge"]
+[ext_resource type="PackedScene" uid="uid://d4g6x7stp7jhc" path="res://Scenes/Scenes/StateMachine/Spyglass state/spyglass_idle.tscn" id="5_heuaw"]
+[ext_resource type="PackedScene" uid="uid://cok24bguy0gxg" path="res://Scenes/Scenes/StateMachine/Spyglass state/focus.tscn" id="6_v8sfu"]
+[ext_resource type="PackedScene" uid="uid://bktd6pwsx5w5k" path="res://Scenes/Scenes/StateMachine/Spyglass state/load.tscn" id="7_6wqdd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_re1ub"]
+radius = 8.49921
+height = 35.3391
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8yq72"]
+radius = 3.0
+
+[node name="Spyglass" type="Node2D" node_paths=PackedStringArray("sprite", "ui", "focusing") groups=["Spyglass"]]
+texture_filter = 1
+script = ExtResource("1_tragd")
+sprite = NodePath("Spyglass")
+ui = NodePath("Spyglass UI")
+focusing = NodePath("Spyglass UI")
+cam_scale_in_UI = Vector2(3.5, 3.5)
+
+[node name="Spyglass" type="Sprite2D" parent="."]
+texture = ExtResource("1_pdkni")
+
+[node name="SpyglassArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpyglassArea"]
+rotation = -0.775238
+shape = SubResource("CapsuleShape2D_re1ub")
+
+[node name="UIArea" type="Area2D" parent="." groups=["SpyglassUI"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UIArea"]
+shape = SubResource("CircleShape2D_8yq72")
+debug_color = Color(0.909874, 0.275604, 0.29761, 0.42)
+
+[node name="Spyglass UI" parent="." instance=ExtResource("3_e1yt8")]
+visible = false
+offset_left = -17.0
+offset_top = -14.0
+offset_right = -17.0
+offset_bottom = -14.0
+
+[node name="SpyglassCamera" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(3, 3)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+drag_left_margin = 0.67
+drag_top_margin = 0.69
+drag_right_margin = 0.68
+drag_bottom_margin = 0.72
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("4_dqrge")
+speed = 5.0
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("spyglass", "init_state")]
+script = ExtResource("4_5tj4b")
+spyglass = NodePath("..")
+init_state = NodePath("Spyglass_idle")
+
+[node name="Spyglass_idle" parent="StateMachine" instance=ExtResource("5_heuaw")]
+
+[node name="Focus" parent="StateMachine" instance=ExtResource("6_v8sfu")]
+
+[node name="Load" parent="StateMachine" instance=ExtResource("7_6wqdd")]
+
+[connection signal="input_event" from="SpyglassArea" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="SpyglassArea" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="SpyglassArea" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="area_entered" from="UIArea" to="." method="_on_ui_area_area_entered"]

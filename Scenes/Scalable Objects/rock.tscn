@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://pnac0deeoyod"]
+
+[ext_resource type="Script" path="res://Scripts/Scalable Object/Objects/Rock.gd" id="1_6e4cc"]
+[ext_resource type="Script" path="res://Scripts/Scalable Object/Objects/rock_test.gd" id="1_76p56"]
+[ext_resource type="Texture2D" uid="uid://ckwat0o68ob0f" path="res://Sprites (Images)/Background/Scalable Objects/Rock_64x64.png" id="2_5dela"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hohnw"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5uan"]
+size = Vector2(53, 50)
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["ScalableObject"]]
+texture_filter = 1
+mass = 0.01
+gravity_scale = 0.0
+linear_damp = 5.0
+angular_damp = 5.0
+script = ExtResource("1_76p56")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_hohnw")
+
+[node name="Rock" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "rigid", "area", "timer")]
+script = ExtResource("1_6e4cc")
+sprite = NodePath("Sprite2D")
+rigid = NodePath("..")
+area = NodePath("Area2D")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Rock"]
+wait_time = 6.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Rock"]
+texture = ExtResource("2_5dela")
+
+[node name="Area2D" type="Area2D" parent="Rock" groups=["ScalableObject"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Rock/Area2D"]
+shape = SubResource("RectangleShape2D_l5uan")
+debug_color = Color(0.918113, 0.155828, 0.59236, 0.42)
+
+[connection signal="body_entered" from="." to="Rock" method="_on_rigid_body_2d_body_entered"]
+[connection signal="timeout" from="Rock/Timer" to="Rock" method="_on_timer_timeout"]

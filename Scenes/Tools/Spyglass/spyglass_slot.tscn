@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d33hk1x2w3bxo"]
+
+[ext_resource type="Texture2D" uid="uid://bew3utdi62ii7" path="res://Sprites (Images)/Tools/SpyglassSlot.png" id="1_kyxa1"]
+
+[node name="Spyglass Slot" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_kyxa1")
