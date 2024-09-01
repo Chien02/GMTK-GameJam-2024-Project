@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://f3walnwhu4cw"]
+
+[ext_resource type="Texture2D" uid="uid://cjg2w036hqlf5" path="res://Sprites (Images)/Inputs/reset_dark-sheet.png" id="1_edc1s"]
+
+[node name="Reset" type="TextureButton"]
+offset_left = 146.0
+offset_top = -66.0
+offset_right = 184.0
+offset_bottom = -25.0
+scale = Vector2(0.711, 0.628)
+texture_normal = ExtResource("1_edc1s")

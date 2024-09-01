@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr3yvmitwluwc"]
+
+[ext_resource type="PackedScene" uid="uid://c4shfqsxnx42u" path="res://Scenes/Tools/Spyglass/spyglass.tscn" id="1_efv0s"]
+[ext_resource type="Texture2D" uid="uid://bew3utdi62ii7" path="res://Sprites (Images)/Tools/SpyglassSlot.png" id="2_xuceo"]
+
+[node name="Tools" type="Node2D"]
+
+[node name="Spyglass" parent="." node_paths=PackedStringArray("marker", "slot_sprite") instance=ExtResource("1_efv0s")]
+position = Vector2(-8, 20)
+marker = NodePath("../Marker2D")
+slot_sprite = NodePath("../SpyglassSlot")
+
+[node name="SpyglassSlot" type="Sprite2D" parent="."]
+position = Vector2(113, 64)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_xuceo")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(113, 64)

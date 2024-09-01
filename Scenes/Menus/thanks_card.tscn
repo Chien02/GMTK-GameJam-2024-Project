@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwx40ckng4y1e"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/thanks_card.gd" id="1_a8pa1"]
+[ext_resource type="FontFile" uid="uid://6spv7bhy8j5j" path="res://Font/monogram/ttf/monogram.ttf" id="1_x7a3h"]
+
+[node name="ThanksCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a8pa1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -132.0
+offset_top = -68.0
+offset_right = -92.0
+offset_bottom = -28.0
+scale = Vector2(36.5116, 20.9324)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 269.0
+offset_right = 1092.0
+offset_bottom = 389.0
+theme_override_fonts/font = ExtResource("1_x7a3h")
+theme_override_font_sizes/font_size = 48
+text = "Thank you for playing our game.
+This is our first game jam so it still have lots of issues. We'll do it better in next time. Stay tune."
+autowrap_mode = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 422.0
+offset_right = 630.0
+offset_bottom = 456.0
+theme_override_fonts/font = ExtResource("1_x7a3h")
+theme_override_font_sizes/font_size = 32
+text = "main menu"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

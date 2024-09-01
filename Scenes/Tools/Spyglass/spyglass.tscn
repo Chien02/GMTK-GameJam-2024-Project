@@ -10,14 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://bktd6pwsx5w5k" path="res://Scenes/Scenes/StateMachine/Spyglass state/load.tscn" id="7_6wqdd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_re1ub"]
-radius = 8.49921
-height = 35.3391
+radius = 2.11403
+height = 8.48484
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8yq72"]
-radius = 3.0
+radius = 2.14286
 
 [node name="Spyglass" type="Node2D" node_paths=PackedStringArray("sprite", "ui", "focusing") groups=["Spyglass"]]
 texture_filter = 1
+scale = Vector2(1.4, 1.4)
 script = ExtResource("1_tragd")
 sprite = NodePath("Spyglass")
 ui = NodePath("Spyglass UI")
@@ -27,7 +28,7 @@ cam_scale_in_UI = Vector2(3.5, 3.5)
 [node name="Spyglass" type="Sprite2D" parent="."]
 texture = ExtResource("1_pdkni")
 
-[node name="SpyglassArea" type="Area2D" parent="."]
+[node name="SpyglassArea" type="Area2D" parent="." groups=["Spyglass"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpyglassArea"]
 rotation = -0.775238
@@ -76,3 +77,4 @@ init_state = NodePath("Spyglass_idle")
 [connection signal="mouse_entered" from="SpyglassArea" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SpyglassArea" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="area_entered" from="UIArea" to="." method="_on_ui_area_area_entered"]
+[connection signal="area_exited" from="UIArea" to="." method="_on_ui_area_area_exited"]

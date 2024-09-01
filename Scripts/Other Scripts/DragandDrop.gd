@@ -10,8 +10,8 @@ var dragging : bool = false
 var draggable : bool = false
 var clicked : bool = false # connect input from area2d in card
 
-const SCALE_UP_VECTOR : Vector2 = Vector2(1.5, 1.5)
-const SCALE_DOWN_VECTOR : Vector2 = Vector2(1, 1)
+const SCALE_UP_VECTOR : Vector2 = Vector2(1.8, 1.8)
+const SCALE_DOWN_VECTOR : Vector2 = Vector2(1.4, 1.4)
 const SPEED : float = 20
 
 func set_original_pos(glbl_pos):

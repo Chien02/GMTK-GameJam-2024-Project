@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvx7y5xyqrd0n"]
+
+[ext_resource type="Texture2D" uid="uid://banx7vgia5odj" path="res://Sprites (Images)/Background/Tileset/Tiny Dimension/color_tileset.png" id="1_3y7p5"]
+[ext_resource type="Script" path="res://Scripts/LevelDesign/MeasuringZone.gd" id="1_6vdr5"]
+[ext_resource type="Shader" path="res://Shaders/Glint.gdshader" id="2_yqe4m"]
+[ext_resource type="FontFile" uid="uid://6spv7bhy8j5j" path="res://Font/monogram/ttf/monogram.ttf" id="3_8o4vr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uqbg"]
+size = Vector2(16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eaioi"]
+shader = ExtResource("2_yqe4m")
+shader_parameter/shine_color = Vector4(1, 1, 1, 1)
+shader_parameter/shine_speed = 3.0
+shader_parameter/shine_size = 0.01
+shader_parameter/flag = false
+
+[node name="MeasuringZone" type="Area2D" groups=["MeasuringZone"]]
+texture_filter = 1
+script = ExtResource("1_6vdr5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1uqbg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_eaioi")
+texture = ExtResource("1_3y7p5")
+hframes = 4
+vframes = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Control"]
+visible = false
+offset_left = -38.0
+offset_top = -26.0
+offset_right = 39.0
+offset_bottom = -3.0
+pivot_offset = Vector2(38, 11)
+theme_override_fonts/font = ExtResource("3_8o4vr")
+theme_override_font_sizes/font_size = 16
+text = "32/32"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

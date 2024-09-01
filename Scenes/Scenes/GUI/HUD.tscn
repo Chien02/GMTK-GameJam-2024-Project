@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b77p04jbt50eb"]
+
+[ext_resource type="PackedScene" uid="uid://wul58knwniw4" path="res://Scenes/Menus/paused_button.tscn" id="1_dtwj5"]
+[ext_resource type="PackedScene" uid="uid://f3walnwhu4cw" path="res://Scenes/Menus/reset.tscn" id="2_g0ky4"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="Control" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PausedButton" parent="Control" instance=ExtResource("1_dtwj5")]
+layout_mode = 0
+
+[node name="Reset" parent="Control" instance=ExtResource("2_g0ky4")]
+layout_mode = 0

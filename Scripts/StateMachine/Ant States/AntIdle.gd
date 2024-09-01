@@ -1,7 +1,7 @@
 extends AntState
 
 func enter():
-	print("AntIdle say hi")
+	#print("AntIdle say hi")
 	switch_idle()
 
 func exit():

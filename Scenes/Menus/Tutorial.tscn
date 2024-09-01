@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceomj1fojfvb3"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/Tutorial.gd" id="1_24ev4"]
+[ext_resource type="FontFile" uid="uid://6spv7bhy8j5j" path="res://Font/monogram/ttf/monogram.ttf" id="2_81e4y"]
+[ext_resource type="Texture2D" uid="uid://vqnuh2d5untx" path="res://Sprites (Images)/Inputs/right_mouse_button_dark.png" id="3_cf5gw"]
+[ext_resource type="Texture2D" uid="uid://bdg087eb1lwmr" path="res://Sprites (Images)/Inputs/space_dark.png" id="4_nqe37"]
+[ext_resource type="Texture2D" uid="uid://cwarvbjhlj517" path="res://Sprites (Images)/Inputs/left_mouse_button_dark.png" id="5_7brg6"]
+[ext_resource type="Texture2D" uid="uid://dkk1j0wqgqffr" path="res://Sprites (Images)/Inputs/scroll_up_down_dark.png" id="6_0mdng"]
+
+[node name="Tutorial" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_24ev4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -151.0
+offset_top = -100.0
+offset_right = -111.0
+offset_bottom = -60.0
+scale = Vector2(39.8657, 22.6244)
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 354.0
+offset_right = 797.0
+offset_bottom = 380.0
+theme_override_fonts/font = ExtResource("2_81e4y")
+theme_override_font_sizes/font_size = 32
+text = ": hold to drag spyglass"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 177.0
+offset_right = 881.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("2_81e4y")
+theme_override_font_sizes/font_size = 32
+text = ": press to interact with event"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 273.0
+offset_right = 893.0
+offset_bottom = 299.0
+theme_override_fonts/font = ExtResource("2_81e4y")
+theme_override_font_sizes/font_size = 32
+text = ": click to turn on/off spyglass"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 441.0
+offset_right = 893.0
+offset_bottom = 467.0
+theme_override_fonts/font = ExtResource("2_81e4y")
+theme_override_font_sizes/font_size = 32
+text = ": scroll up/down to zoom in/out"
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 327.0
+offset_right = 428.0
+offset_bottom = 391.0
+texture = ExtResource("3_cf5gw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 151.0
+offset_right = 466.0
+offset_bottom = 215.0
+texture = ExtResource("4_nqe37")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 239.0
+offset_right = 428.0
+offset_bottom = 303.0
+texture = ExtResource("5_7brg6")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 414.0
+offset_right = 428.0
+offset_bottom = 478.0
+texture = ExtResource("6_0mdng")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 974.0
+offset_top = 53.0
+offset_right = 1084.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("2_81e4y")
+theme_override_font_sizes/font_size = 32
+text = "back"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 497.0
+offset_right = 640.0
+offset_bottom = 531.0
+theme_override_fonts/font = ExtResource("2_81e4y")
+theme_override_font_sizes/font_size = 32
+text = "play"
+
+[connection signal="button_down" from="BackButton" to="." method="_on_back_button_button_down"]
+[connection signal="button_down" from="PlayButton" to="." method="_on_play_button_button_down"]

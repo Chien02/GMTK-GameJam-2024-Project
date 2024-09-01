@@ -2,7 +2,7 @@ extends AntState
 
 
 func enter():
-	print("AntWalk say hello")
+	#print("AntWalk say hello")
 	switch_walk()
 
 func exit():

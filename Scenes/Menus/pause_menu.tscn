@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://scvdcp587rcs"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/pause_menu.gd" id="1_nurxo"]
+[ext_resource type="FontFile" uid="uid://6spv7bhy8j5j" path="res://Font/monogram/ttf/monogram.ttf" id="1_oa6ll"]
+[ext_resource type="PackedScene" uid="uid://ceomj1fojfvb3" path="res://Scenes/Menus/Tutorial.tscn" id="2_m0d8u"]
+
+[node name="PauseMenu" type="CanvasLayer" node_paths=PackedStringArray("tutorial_scene", "pause_menu")]
+process_mode = 3
+script = ExtResource("1_nurxo")
+tutorial_scene = NodePath("Tutorial")
+pause_menu = NodePath("Control")
+
+[node name="Tutorial" parent="." node_paths=PackedStringArray("pause") instance=ExtResource("2_m0d8u")]
+process_mode = 2
+visible = false
+pause = NodePath("../Control")
+
+[node name="Control" type="Control" parent="."]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -403.0
+offset_top = -236.0
+offset_right = -363.0
+offset_bottom = -196.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(19.2398, 12.5074)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 146.0
+offset_right = 743.0
+offset_bottom = 298.0
+theme_override_fonts/font = ExtResource("1_oa6ll")
+theme_override_font_sizes/font_size = 128
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 284.0
+offset_right = 658.0
+offset_bottom = 343.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(100, 34)
+theme_override_fonts/font = ExtResource("1_oa6ll")
+theme_override_font_sizes/font_size = 48
+text = "continue"
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 348.0
+offset_right = 658.0
+offset_bottom = 407.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(100, 32)
+theme_override_fonts/font = ExtResource("1_oa6ll")
+theme_override_font_sizes/font_size = 48
+text = "tutorial"
+
+[node name="Button3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 408.0
+offset_right = 658.0
+offset_bottom = 467.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(98.75, 35)
+theme_override_fonts/font = ExtResource("1_oa6ll")
+theme_override_font_sizes/font_size = 48
+text = "menu"
+
+[connection signal="button_down" from="Control/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Control/Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="Control/Button3" to="." method="_on_button_3_button_down"]

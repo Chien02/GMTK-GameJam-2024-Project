@@ -48,7 +48,6 @@ func set_focused_object(object: ScalableObject):
 		focused_object = object
 		focused_object._name = object.name
 		set_current_value(object.current_scale_value)
-		print("Focused Object: ", focused_object._name)
 
 func remove_focused_object():
 	if focused_object:
@@ -60,7 +59,6 @@ func set_current_value(value):
 	current_scale = value
 	var keys = transfer_measure.keys()
 	var values = transfer_measure.values()
-	print("From Focusing: ", focused_object._name,"'s current scale = ", value)
 	
 	for idx in range(0, keys.size()):
 		if value == values[idx]:

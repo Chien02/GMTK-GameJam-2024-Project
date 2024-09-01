@@ -2,10 +2,12 @@ extends SpyglassState
 #spyglass idle
 
 func enter():
-	print("Enter idle")
+	#print("Enter idle")
+	pass
 
 func exit():
-	print("Exit idle")
+	#print("Exit idle")
+	pass
 
 func process(_delta):
 	pass

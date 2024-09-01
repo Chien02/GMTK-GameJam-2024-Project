@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://dggf6kmqh2gih"]
+
+[ext_resource type="Script" path="res://Scripts/LevelDesign/HollowLogWood.gd" id="1_3kmnl"]
+[ext_resource type="Texture2D" uid="uid://rhajxceg3wjv" path="res://Sprites (Images)/Background/Scalable Objects/hollow_log_wood.png" id="1_5k6e8"]
+[ext_resource type="FontFile" uid="uid://6spv7bhy8j5j" path="res://Font/monogram/ttf/monogram.ttf" id="3_ip730"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ub4rf"]
+size = Vector2(26, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1e7vn"]
+size = Vector2(3.625, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwdr0"]
+size = Vector2(5.5, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6ciu"]
+size = Vector2(24, 14)
+
+[node name="Hollow Log Wood" type="Node2D" node_paths=PackedStringArray("sprite", "rigid", "area", "timer", "label", "collider_list") groups=["HollowLogWood"]]
+texture_filter = 1
+script = ExtResource("1_3kmnl")
+sprite = NodePath("Sprite2D")
+rigid = NodePath("RigidBody2D")
+area = NodePath("Area2D")
+timer = NodePath("Timer")
+label = NodePath("Control/Label")
+collider_list = [NodePath("Area2D/CollisionShape2D"), NodePath("Area1/CollisionShape2D"), NodePath("Area2/CollisionShape2D"), NodePath("RigidBody2D/CollisionShape2D")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5k6e8")
+
+[node name="Area2D" type="Area2D" parent="." groups=["ScalableObject"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ub4rf")
+debug_color = Color(0.635921, 0.495415, 0.495357, 0.42)
+
+[node name="Area1" type="Area2D" parent="." groups=["HollowLogWood"]]
+position = Vector2(-15, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area1"]
+position = Vector2(-0.1875, 0)
+shape = SubResource("RectangleShape2D_1e7vn")
+
+[node name="Area2" type="Area2D" parent="." groups=["HollowLogWood"]]
+position = Vector2(15, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2"]
+position = Vector2(1.25, 0)
+shape = SubResource("RectangleShape2D_uwdr0")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.01
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_a6ciu")
+debug_color = Color(0.552019, 0.558334, 0.209061, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+offset_left = -20.0
+offset_top = -26.0
+offset_right = 20.0
+offset_bottom = -3.0
+pivot_offset = Vector2(20, 12)
+theme_override_fonts/font = ExtResource("3_ip730")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area1" to="." method="_on_area_1_area_entered"]
+[connection signal="area_exited" from="Area1" to="." method="_on_area_1_area_exited"]
+[connection signal="area_entered" from="Area2" to="." method="_on_area_2_area_entered"]
+[connection signal="area_exited" from="Area2" to="." method="_on_area_2_area_exited"]
